@@ -1,0 +1,53 @@
+{
+    "name": "트리플 - 모바일 여행 가이드",
+    "short_name": "트리플",
+    "lang": "ko-KR",
+    "start_url": ".",
+    "background_color": "#ffffff",
+    "theme_color": "#1ab8ad",
+    "description": "세계 주요도시 여행 가이드 제공. 여행 일정. 길찾기. 맛집 관광지 추천. 별점 리뷰",
+    "prefer_related_applications": true,
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "sizes": "16x16 32x32 64x64"
+      },
+      {
+        "src": "icons/favicon-70x70.png",
+        "sizes": "70x70",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/favicon-120x120.png",
+        "sizes": "120x120",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/favicon-150x150.png",
+        "sizes": "150x150",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/favicon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/favicon-310x310.png",
+        "sizes": "310x310",
+        "type": "image/png"
+      }
+    ],
+    "related_applications": [
+      {
+        "platform": "play",
+        "id": "com.titicacacorp.triple",
+        "url": "https://play.google.com/store/apps/details?id=com.titicacacorp.triple"
+      },
+      {
+        "platform": "itunes",
+        "url": "https://itunes.apple.com/app/id1225499481"
+      }
+    ]
+  }
+  

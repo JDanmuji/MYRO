@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html><head>
+    <title>마이로(MYRO) - AI 여행 일정 플래너</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="마이로(MYRO)-쉽고 간편한 여행 일정 플래너">
+    <meta name="keywords" content="마이로, myro, 여행일정, 마이로 여행일정, 추천 일정, 추천 코스, 여행 플래너, 5분 만에 여행 일정, 유럽 여행, 홍콩 여행, 대만 여행, 나만의 여행 일정, 해외여행, 국내여행">
+
+    <!--Open Graph-->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="마이로(MYRO)">
+    <meta property="og:description" content="국내외 70개 여행 도시 / 여행 일정 플래너 / 일자별 경로 제공 / 가고 싶은 장소만 넣으면 되는 간단하고 쉬운 나만의 여행 일정 만들기">
+    <meta property="og:site_name" content="마이로">
+    <meta property="og:image" content="myro_image/meta_logo.png">
+    <meta property="og:url" content="https://www.myro.co.kr">
+    <meta name="Robots" content="INDEX, FOLLOW">
+
+    <meta name="naver-site-verification" content="1ea0e62cece877bc86cac2ce29713e529041116f">
+    <meta name="google-site-verification" content="6dLwVODj4glAujnMHA8rfK_9jrxixaxucC3c80JtNmA">
+
+    <link rel="canonical" href="https://myro.co.kr/">
+    <link rel="stylesheet" type="text/css" href="myro.css">
+
+    <link rel="shortcut icon" href="myro_image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-2R5X18F3LN&amp;l=dataLayer&amp;cx=c"></script><script src="https://connect.facebook.net/signals/config/256507643181766?v=2.9.106&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-132785313-1"></script>
+    <script>
+        if (location.href.indexOf("https://myro.co.kr") != -1) {
+            location.href = "https://www.myro.co.kr";
+        }
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "UA-132785313-1");
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod
+                    ? n.callMethod.apply(n, arguments)
+                    : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        })(
+            window,
+            document,
+            "script",
+            "https://connect.facebook.net/en_US/fbevents.js"
+        );
+        fbq("init", "256507643181766");
+        fbq("track", "PageView");
+    </script>
+    <noscript><img
+            height="1"
+            width="1"
+            style="display: none"
+            src="https://www.facebook.com/tr?id=256507643181766&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+<body>
+    <!-- Navbar -->
+
+    <link rel="stylesheet" type="text/css" href="header.css">
+<link rel="stylesheet" type="text/css" href="uikit.min.css">
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" /> -->
+<div id="headerArea">
+<nav id="navcc">
+    <div class="nav-wrapper navWidth">
+        <a href="/" id="navlefttext">
+            <b>MYRO</b>
+            <h7 id="navlongtext2">&nbsp;MAKE YOUR ROUTE OPTIMIZED</h7>
+            <!-- h7사이에 ~~환영합니다 -->
+            <!-- <h7 id="navlongtext2"></h7> -->
+        </a>
+
+        <ul id="navtextbtn1" class="nav-button-container">
+            <li id="navtextbtn1_1">
+                <a onclick="start()">여행지</a>
+            </li>
+
+            <li id="navtextbtn1_2">
+                <a href="about.html">마이로</a>
+            </li>
+
+            <li id="navtextbtn1_3">
+                <a href="guide.html" id="guidebutton">이용방법</a>
+            </li>
+            <!--                <li class="mainNoticeStyle" id="navtextbtn1_4">-->
+            <!--                    <a onclick="showNoticeMenu_Main()"> <i class="material-icons">campaign</i><span class="mainNavBadge badge red"></span> </a>-->
+            <!--                </li>-->
+            <li id="navtextbtn1_5" class="header-start-button" style="display: none;">
+                <a href="/" id="guidebutton">마이로 시작하기</a>
+            </li>
+
+            <li id="loginLogoutNav">
+                <div class="nav-profile-btn-container">
+                    <span id="loginLogout"><a href="login.html">로그인</a></span>
+                </div>
+            </li>
+
+            <li class="header-sidebar-button" id="navtextbtn1_5">
+                <a uk-toggle="target: #offcanvas-flip" class="header-menu-flex" tabindex="0" aria-expanded="false">
+                    <i class="material-icons">menu</i>
+                </a>
+            </li>
+
+            <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas">
+                <div class="uk-offcanvas-bar nav-sidebar">
+                    <ul class="uk-nav uk-nav-default">
+                        <!-- 여긴 모바일 화면일 때 활성화 -->
+                        <div id="loginLogoutMobile">
+                            <!-- 로그인 상태라면 여기 display -->
+                            <div class="nav-sidebar-avatar-container">
+                                <div class="nav-sidebar-avatar">
+                                    <span id="userNickNameLogoByPhone">
+                                    </span>
+                                    <!-- <img src="myro_image/avatar.png" alt="avatar" /> -->
+                                </div>
+                                <div class="user-text">
+                                    <span id="userNickNameByPhone"></span>
+                                </div>
+                                <span id="loginLogoutByPhone">
+                                    <button class="logout-btn" onclick="logout()">
+                                        로그아웃
+                                    </button>
+                                </span>
+                            </div>
+
+                            <!-- 로그아웃 상태라면 여기 display -->
+                            <!-- <div class="nav-sidebar-avatar-container">
+                                <button class="login-btn" onclick="">로그인</button>
+                            </div> -->
+                        </div>
+                        <li class="uk-active">
+                            <a href="/about.html">마이로소개</a>
+                        </li>
+
+                        <!-- <li class="uk-active"><a onclick="openYoutubeGideButton()" id="guidebuttonByPhone">이용방법</a></li> -->
+
+                        <li class="uk-parent">
+                            <a href="/">메인페이지</a>
+                        </li>
+                        <li class="uk-parent">
+                            <a href="/mypage.html">마이페이지</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ul>
+    </div>
+</nav>
+</div>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="ref/uikit.min.js"></script>
+
+<script>
+let userEmail = ``;
+let userNickName = ``;
+let userSignupOrigin = ``;
+let userEmailSubString = userEmail.substring(0, 1);
+let userNickNameSubString = userNickName.substring(0, 1);
+let isNotLoginWithToken;
+
+if (!userEmail && !userNickName) {
+    if (window.localStorage.myroRefreshToken) {
+        $.ajax({
+            url: "/checkRefreshToken",
+            type: "PUT",
+            data: {
+                refreshToken: window.localStorage.myroRefreshToken,
+            },
+            success: function (res) {
+                if (res.statusCode == 200) {
+                    window.localStorage.setItem(
+                        "myroRefreshToken",
+                        res.jwtRefreshToken
+                    );
+                    userEmail = res.userEmail;
+                    userNickName = res.userNickName;
+                    userSignupOrigin = res.userSignupOrigin;
+                    userEmailSubString = userEmail.substring(0, 1);
+                    userNickNameSubString = userNickName.substring(0, 1);
+                    $("#loginLogout").html(`<button
+                        class="nav-profile-btn"
+                        type="button"
+                    >
+                        <div><span id="userNickNameLogo"></span></div>
+                    </button>
+                    <div uk-dropdown="mode: click" class="header-dropdown-style">
+                        <ul>
+                            <div
+                                style="color: #000; text-align: center"
+                            ></div>
+                            <li><a href="/mypage">마이페이지</a></li>
+                            <li><a onclick="logout()">로그아웃</a></li>
+                        </ul>
+                    </div>`);
+                    $("#userNickNameLogo").append(userNickNameSubString);
+                } else if (res.statusCode == 401) {
+                }
+            },
+            fail: function (res) {},
+        });
+    }
+}
+if (userEmail) {
+    if ($(window).width() <= 600) {
+        $("#userNickNameByPhone").html(userNickName);
+        let userNickNameSubStringByPhone = userNickName.substring(0, 1);
+        $("#userNickNameLogoByPhone").html(userNickNameSubStringByPhone);
+        $("#loginLogout").hide();
+    } else {
+        $("#loginLogout").append(`<button
+                        class="nav-profile-btn"
+                        type="button"
+                    >
+                        <div><span id="userNickNameLogo"></span></div>
+                    </button>
+                    <div uk-dropdown="mode: click" class="header-dropdown-style">
+                        <ul>
+                            <div
+                                style="color: #000; text-align: center"
+                            ></div>
+                            <li><a href="/mypage">마이페이지</a></li>
+                            <li><a onclick="logout()">로그아웃</a></li>
+                        </ul>
+                    </div>`);
+        let userEmailSubString = userEmail.substring(0, 1);
+        let userNickNameSubString = userNickName.substring(0, 1);
+        $("#userNickNameLogo").append(userNickNameSubString);
+        // console.log(userName);
+    }
+    // $('#loginBtn').hide();
+} else {
+    if ($(window).width() <= 600) {
+        $("#loginLogoutByPhone").html(
+            `<button class="logout-btn" onclick="loginByPhone()" >로그인</button>`
+        );
+    } else {
+        $("#loginLogout").html(
+            `<a href="login.html">로그인</a>`
+        );
+        // $('#loginLogout').hide();
+    }
+}
+function loginByPhone() {
+    window.open("login.html");
+}
+
+let pageLocation = location.href.split("/")[3];
+if (pageLocation == "" || pageLocation.indexOf("myro1") != -1) {
+    $(document).scroll(function () {
+        var $nav = $("#navcc");
+        $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        //                $("#navcc b").css("display", "inherit");
+    });
+    $("#navtextbtn1_5").hide();
+} else if (pageLocation.indexOf("guide") != -1) {
+    $("#navtextbtn1_1").hide();
+    $("#navtextbtn1_2").hide();
+    $("#navtextbtn1_3").hide();
+    $("#navtextbtn1_4").hide();
+    $("#navcc").css("background-color", "#fff");
+    $("#navcc").css("color", "#000");
+} else {
+   // $("#navtextbtn1_1").hide();
+    //$("#navtextbtn1_2").hide();
+    //$("#navtextbtn1_3").hide();
+    //$("#navtextbtn1_4").hide();
+    //$("#navtextbtn1_5").hide();
+    //$("#navcc").css("background-color", "#fff");
+    //$("#navcc").css("color", "#000");
+    //if ($(window).width() >= 600) {
+    //    $("#navcc").addClass("nav-shadow");
+    //}
+}
+
+
+
+function logout() {
+    window.localStorage.removeItem("myroRefreshToken");
+
+    $.ajax({
+        type: "GET",
+        url: headAddress + "/logout",
+
+        success: function (data) {
+            $("#loginLogout").html(
+                `<a href="login.html">로그인</a>`
+            );
+            $("#loginLogoutByPhone").html(
+                `<button class="logout-btn" onclick="loginByPhone()" >로그인</button>`
+            );
+            userEmail = null;
+            userNickName = null;
+            userSignupOrigin = null;
+            location.href = "/";
+        },
+        fail: function () {},
+    });
+}
+
+function setParentPage(_userEmail, _userNickName, _userSignupOrigin) {
+    userEmail = _userEmail;
+    userNickName = _userNickName;
+    userSignupOrigin = _userSignupOrigin;
+    userEmailSubString = userEmail.substring(0, 1);
+    userNickNameSubString = userNickName.substring(0, 1);
+
+    $("#loginLogout").html(`<button
+            class="nav-profile-btn"
+            type="button"
+        >
+            <div><span id="userNickNameLogo"></span></div>
+        </button>
+        <div uk-dropdown="mode: click" class="header-dropdown-style">
+            <ul>
+                <div
+                    style="color: #000; text-align: center"
+                ></div>
+                <li><a href="/mypage">마이페이지</a></li>
+                <li><a onclick="logout()">로그아웃</a></li>
+            </ul>
+        </div>`);
+    $("#loginLogoutByPhone").html(
+        `<button class="logout-btn" onclick="logout()" >로그아웃</button>`
+    );
+
+    $("#userNickNameByPhone").html(userNickName);
+    let userNickNameSubStringByPhone = userNickName.substring(0, 1);
+    $("#userNickNameLogoByPhone").html(userNickNameSubStringByPhone);
+    // console.log(location.href.indexOf('city'));
+    // console.log(location.href.indexOf('myro2'));
+    // console.log(location.href.indexOf('savedRouteToken'));
+    let isNotLoginWithToken = false;
+    if (
+        isNotLoginWithToken &&
+        location.href.indexOf("city") != -1 &&
+        location.href.indexOf("myro2") != -1 &&
+        location.href.indexOf("savedRouteToken") != -1
+    ) {
+        // console.log(132131);
+        let l = location.href;
+        if (l.split("?")[1].split("&")[1]) {
+            let ll = l.split("?")[1].split("&")[1];
+            if (ll.split("=")[0] == "savedRouteToken") {
+                savedRouteToken = ll.split("=")[1];
+                addUserTrackingData("savedRouteToken:" + savedRouteToken);
+                // console.log(savedRouteToken);
+                //루트토큰 있고 없고&& 로그인 및 권한~
+                if (savedRouteToken) {
+                    if (userEmail) {
+                        $.ajax({
+                            type: "GET",
+                            url: headAddress + "/verifyAuthority",
+                            data: {
+                                savedRouteToken: savedRouteToken,
+                                userEmail: userEmail,
+                            },
+                            success: function (res) {
+                                if (
+                                    res.statusCode == 200 &&
+                                    (res.msg == "여행 주인" ||
+                                        res.msg == "여행 친구")
+                                ) {
+                                    console.log("여행주인");
+                                    $("#saveRouteByExelBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#sendEmailBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#modifySavedRouteBtnInBox").css(
+                                        "display",
+                                        "flex"
+                                    );
+                                    $("#duplicateRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#saveRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#loginBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                } else if (
+                                    res.statusCode == 200 &&
+                                    res.msg == "여행 방문자"
+                                ) {
+                                    console.log(44444444);
+                                    $("#saveRouteByExelBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#sendEmailBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#modifySavedRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#duplicateRouteBtnInBox").css(
+                                        "display",
+                                        "flex"
+                                    );
+                                    $("#saveRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#loginBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                }
+                            },
+                        });
+                        // console.log('토큰 있고 이메일 있고');
+                    } else {
+                        // alert('로그인을 하셔야 합니다')
+                        // window.open('/login')
+                        // location.href = '/'
+                        $("#saveRouteByExelBtnInBox").css(
+                            "display",
+                            "flex"
+                        );
+                        $("#sendEmailBtnInBox").css("display", "none");
+                        $("#modifySavedRouteBtnInBox").css(
+                            "display",
+                            "none"
+                        );
+                        $("#duplicateRouteBtnInBox").css("display", "none");
+                        $("#saveRouteBtnInBox").css("display", "none");
+                        $("#loginBtnInBox").css("display", "flex");
+                    }
+                }
+                showLoading();
+                $.ajax({
+                    type: "GET",
+                    url: headAddress + "/getDataFromSavedRoute",
+                    data: {
+                        savedRouteToken: savedRouteToken,
+                    },
+                    success: function (data) {
+                        let gestureHandlingType = "cooperative";
+                        if ($(window).width() > 600) {
+                            gestureHandlingType = "";
+                        }
+                        document.getElementById("routepage").style.display =
+                            "block";
+                        map2 = new google.maps.Map(
+                            document.getElementById("googleMapForRoute"),
+                            {
+                                zoom: 11,
+                                center: {
+                                    lat: startLat,
+                                    lng: startLng,
+                                },
+                                gestureHandling: gestureHandlingType,
+                            }
+                        );
+                        dataFromServer = data;
+                        backupDataFromServer = JSON.parse(
+                            JSON.stringify(dataFromServer)
+                        );
+                        // 공항, 이메일 정보 등
+                        backupDataFromSavedToken = JSON.parse(
+                            JSON.stringify(dataFromServer)
+                        );
+                        delete backupDataFromSavedToken.spotsByDay;
+                        delete backupDataFromSavedToken.stayingInfos;
+                        delete backupDataFromSavedToken.originalSchedule;
+                        for (
+                            let i = 0;
+                            i <
+                            backupDataFromSavedToken.originalSpotsNo.length;
+                            i++
+                        ) {
+                            addSpotToSelectedSpotsWhenHaveToken(
+                                backupDataFromSavedToken.originalSpotsNo[i]
+                            );
+                        }
+                        startTravelDate = new Date(
+                            dataFromServer.startTravelDate
+                        );
+                        travelDay = dataFromServer.spotsByDay.length - 1;
+                        setEndTravelDateAfterSettingStartDateAndSetEDailyTimeSettingArea(
+                            startTravelDate
+                        );
+                        setDailyTimeSettingArea(startTravelDate);
+                        $("#showingTravelDay").html(
+                            travelDay + "&nbsp" + "DAY"
+                        );
+                        $("#showingTravelDay3").html(travelDay);
+                        $("#travelDayForRouteMap").html(travelDay);
+                        $("#travelDay").val(travelDay);
+                        changeSelectedHotelAreaWhenChangeDate();
+
+                        //originalHotels로 넣어주는거 변경(no만 갖고 있으니까 해당 정보 불러온 후 해야함)
+                        // for (let i = 1; i < dataFromServer.spotsByDay.length; i++) {
+                        //     selectedHotels.push(dataFromServer.spotsByDay[i][0]);
+
+                        // }
+                        setHotelsWhenHaveToken(selectedHotels);
+                        //dataFromServer.originalSchedule
+                        totalTravelMins = 0;
+                        for (
+                            let i = 0;
+                            i < dataFromServer.originalSchedule.length;
+                            i++
+                        ) {
+                            let originalSchedule =
+                                dataFromServer.originalSchedule[i];
+                            let startTime = originalSchedule.startTime;
+                            let endTime = originalSchedule.endTime;
+                            let dailySpendingMins =
+                                getAbsoluteMinuteFromHHMM(endTime) -
+                                getAbsoluteMinuteFromHHMM(startTime);
+                            if (dailySpendingMins < 0) {
+                                dailySpendingMins += 1440;
+                            }
+                            totalTravelMins += dailySpendingMins;
+                            let startTimeForPresent =
+                                startTime.substr(0, 2) +
+                                ":" +
+                                startTime.substr(2, 4);
+                            let endTimeForPresent =
+                                endTime.substr(0, 2) +
+                                ":" +
+                                endTime.substr(2, 4);
+                            $('input[name="dailyStartTimes"]')[i].value =
+                                startTimeForPresent;
+                            $('input[name="dailyEndTimes"]')[i].value =
+                                endTimeForPresent;
+                        }
+
+                        let totalTravelH = Math.floor(totalTravelMins / 60);
+                        let totalTravelM = Math.floor(totalTravelMins % 60);
+                        $("#totalTravelH").html(totalTravelH);
+                        $("#totalTravelM").html(totalTravelM);
+                        $(".myro2-multibtndiv-modal").css("left", "360px");
+                        $("#cart2NoList").css("display", "none");
+                        $("#getScheduleFileByExcelBtnT").css(
+                            "display",
+                            "block"
+                        );
+                        $("#copyRouteTokenBtnT").css("display", "block");
+                        $("#saveButton").css("display", "none");
+                        $("#modifyFixButton").css("display", "block");
+
+                        closePlanSideBar();
+                        modifyModeDeActivate();
+                        openPlanPageWidely = false;
+                        setMap(dataFromServer);
+                        hideLoading();
+                    },
+                });
+            }
+        }
+    } else if (
+        location.href.indexOf("city") != -1 &&
+        location.href.indexOf("myro2") != -1 &&
+        location.href.indexOf("savedRouteToken") == -1
+    ) {
+        $("#saveRouteByExelBtnInBox").css("display", "none");
+        $("#sendEmailBtnInBox").css("display", "none");
+        $("#modifySavedRouteBtnInBox").css("display", "none");
+        $("#duplicateRouteBtnInBox").css("display", "none");
+        $("#saveRouteBtnInBox").css("display", "flex");
+        $("#loginBtnInBox").css("display", "none");
+    } else if (
+        location.href.indexOf("city") != -1 &&
+        location.href.indexOf("myro2") != -1 &&
+        location.href.indexOf("savedRouteToken") != -1
+    ) {
+        $("#saveRouteByExelBtnInBox").css("display", "none");
+        $("#sendEmailBtnInBox").css("display", "none");
+        $("#modifySavedRouteBtnInBox").css("display", "none");
+        $("#duplicateRouteBtnInBox").css("display", "none");
+        $("#saveRouteBtnInBox").css("display", "flex");
+        $("#loginBtnInBox").css("display", "none");
+    }
+    // console.log(userNameSubString);
+    $("#userNickNameLogo").append(userNickNameSubString);
+}
+// }
+
+// userNickNameLogo
+// $('#userNickNameLogoByPhone').html(userNickNameSubStringByPhone)
+// console.log(userNickName);
+</script>
+
+
+    <!--Event btn-->
+    <!-- <div class="center" id="eventBtnWrap">
+        <a id="eventBtn" href="#appLinkDiv" class="btn waves-effect waves-light pink accent-3 white-text">
+            <hs>마이로 앱 출시</hs>
+        </a>
+
+        <a id="eventBtn" onclick="openEventPage()" class="btn waves-effect waves-light red accent-4 white-text"><h7> 이벤트 진행중</h7></a>
+        <div style="height: 5px"></div>
+        <a id="eventQuesBtn" onclick="window.open('https://docs.google.com/forms/d/13pGrHx1k_2KfUR29EDFCG4y2Fh7vaIcJCVdxPkNcjEs');" class="btn waves-effect waves-light blue accent-4 white-text"><h7> 설문조사 링크</h7></a>
+    </div> -->
+
+    <!-- Header -->
+    <header class="wide-spacing" id="home">
+        <div class="main-top-container">
+            <div class="uk-grid-match uk-grid" uk-grid="">
+                <div style="margin: 0; padding: 0" class="uk-width-2-5@m uk-first-column">
+                    <div class="main-left-container">
+                        <div>
+                            <div class="maintitleTextdiv" style="justify-content: center">
+                                <div>
+                                    <h2 class="mainsubtitle">
+                                        AI 여행 스케줄링 플래너
+                                    </h2>
+                                    <!-- <h5 class="">
+                                        여행 일자, 숙소, 가고 싶은 장소만
+                                    </h5>
+                                    <h5 class="">
+                                        선택하면 일정이 자동으로 완성되는
+                                    </h5>
+                                    <h5>쉽고 간편한 여행 일정 플래너</h5> -->
+                                </div>
+                            </div>
+                            <!-- <div style="width: 400px; margin: 8px 0 32px 0">
+                                <img
+                                    src="myro_image/myro_logo_test_2.png"
+                                    alt="introimage"
+                                    loading="lazy"
+                                />
+                            </div> -->
+                            <h1 class="maintitlemyro">
+                                <b>MYRO</b>
+                            </h1>
+                            <div class="text-focus-in" id="startbutton">
+                                <a onclick="start()" class="btn mainstartbutton">시작하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 0; padding: 0" class="uk-width-3-5@m">
+                    <div style="
+                            background-color: rgb(129, 129, 145);
+                            height: 100vh;
+                        ">
+                        <div>
+                            <video muted="" autoplay="" loop="" style="height: 100vh; max-width: none" id="mainVideo"><source src="myro_video/MainMovie5.mp4" type="video/mp4"></video>
+                            <!-- <img style="background-size: cover; height: 100vh; width: 100%" src="myro_image/mainN7.jpg" alt="메인이미지" loading="lazy" /> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-grid-match main-bottom-container uk-grid" uk-grid="">
+            <div style="margin: 0px; padding: 0px; transform: translateX(-100px) translateY(100px) scale(0.5); opacity: 0;" class="uk-width-2-5@m uk-first-column" uk-parallax="opacity: 0,1,1; y: 100,0,0; x: -100,-100,0; scale: 0.5,1,1; viewport: 0.5;">
+                <div style="
+                        background-color: #fafafa;
+                        height: 300px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                    <h7>
+                        여행 일자, 숙소, 가고 싶은 장소만
+                        <br>
+
+                        선택하면 일정이 자동으로 완성되는
+                        <br>
+                        쉽고 간편한 여행 일정 플래너</h7>
+                </div>
+            </div>
+            <div style="margin: 0; padding: 0" class="uk-width-3-5@m">
+                <div>
+                    <div class="row" style="height: 300px">
+                        <div style="
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                                background-color: #fff;
+                                height: 100%;
+                            " class="col s12 m4">
+                            <h4 style="font-family: 'Montserrat' !important">
+                                <b>STEP 1</b>
+                            </h4>
+                            <div>여행지선택</div>
+                        </div>
+                        <div style="
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                                background-color: #fff;
+                                height: 100%;
+                            " class="col s12 m4">
+                            <h4 style="font-family: 'Montserrat' !important">
+                                <b>STEP 2</b>
+                            </h4>
+                            <div>장소선택</div>
+                        </div>
+                        <div style="
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                                background-color: #fff;
+                                height: 100%;
+                            " class="col s12 m4">
+                            <h4 style="font-family: 'Montserrat' !important">
+                                <b>STEP 3</b>
+                            </h4>
+                            <div>일정생성</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!--Main image-->
+        <!-- <div class="parallax"><img src="myro_image/mainN.jpg" alt="메인이미지" loading="lazy"/></div> -->
+        <!-- </div> -->
+
+        <!--User city count Div-->
+        <div class="countcon">
+            <div class="countbox">
+                <div class="countboxDiv">
+                    <h7>이용자수</h7>
+                    <h3><span class="counter" id="routeCnt">147,328</span></h3>
+                </div>
+                <!-- <h4 class="countboxPartition">|</h4> -->
+                <div class="countboxDiv">
+                    <h7>여행지</h7>
+                    <h3><span class="counter" id="cityCnt">93</span></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobileContainer">
+            <p class="maintitlesummary">AI 여행 스케줄링 플래너 마이로</p>
+            <h1 class="maintitlemyro"><b>MYRO</b></h1>
+            <br>
+        </div>
+    </header>
+
+    <!-- Project Section -->
+    <div class="container cityListMobileWidth">
+        <div class="uk-margin-large info-section">
+            <div class="main-section-text-container">
+                <div class="main-section-title">여행기</div>
+                <div class="uk-text-meta main-section-subtitle">
+                    TRAVELOG
+                </div>
+            </div>
+
+            <div class="uk-slider-container-offset uk-slider uk-slider-container" uk-slider="">
+                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" id="travelReview"><ul class="uk-slider-items uk-child-width-1-2@s uk-grid" style="transform: translate3d(0px, 0px, 0px);">
+ 
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-icon uk-slidenav-previous uk-slidenav" href="#" uk-slidenav-previous="" uk-slider-item="previous"><svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.4" points="12.775,1 1.225,12 12.775,23 "></polyline></svg></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-icon uk-slidenav-next uk-slidenav" href="#" uk-slidenav-next="" uk-slider-item="next"><svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.4" points="1.225,23 12.775,12 1.225,1 "></polyline></svg></a>
+                </div>
+
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"><li uk-slider-item="0" class="uk-active"><a href=""></a></li><li uk-slider-item="1"><a href=""></a></li><li uk-slider-item="2"><a href=""></a></li><li uk-slider-item="3"><a href=""></a></li><li uk-slider-item="4"><a href=""></a></li><li uk-slider-item="5"><a href=""></a></li><li uk-slider-item="6"><a href=""></a></li><li uk-slider-item="7"><a href=""></a></li><li uk-slider-item="8"><a href=""></a></li></ul>
+            </div>
+        </div>
+
+        <div class="uk-margin-large info-section">
+            <div class="main-section-text-container">
+                <div class="main-section-title">인기 여행지</div>
+                <div class="uk-text-meta main-section-subtitle">
+                    POPULAR DESTINATIONS
+                </div>
+            </div>
+
+            <div class="uk-position-relative uk-visible-toggle uk-light uk-slider uk-slider-container" tabindex="-1" uk-slider="">
+                <ul class="uk-slider-items uk-grid" id="topCityListForWebPage" style="transform: translate3d(0px, 0px, 0px);">
+                                          <a class="uk-width-1-3 uk-active" onclick="setSpotModal('jeju')" href="#modal-city-detail" uk-toggle="" aria-expanded="false" tabindex="-1">
+                                            <li>
+                                              <div class="uk-panel" style="width:100%;">
+                                                  <img style="width:100%;" src="myro_image/city/jeju.jpg" alt="cityimage" loading="lazy">
+                                                  <div class="main-photo-linear"></div>
+                                                  <div class="uk-position-bottom uk-text-center" style="margin-bottom:8px;">
+                                                      <h3 uk-slider-parallax="x: 100,-100" style="font-family: 'Montserrat'; font-weight: 900;margin-bottom:8px;">JEJU</h3>
+                                                      <p uk-slider-parallax="x: 200,-200" style="margin-top:0;">대한민국 제주도</p>
+                                                  </div>
+                                              </div>
+                                            </li>
+                                          </a>
+                                          <a class="uk-width-1-3 uk-active" onclick="setSpotModal('busan')" href="#modal-city-detail" uk-toggle="" aria-expanded="false" tabindex="-1">
+                                            <li>
+                                              <div class="uk-panel" style="width:100%;">
+                                                  <img style="width:100%;" src="myro_image/city/busan.jpg" alt="cityimage" loading="lazy">
+                                                  <div class="main-photo-linear"></div>
+                                                  <div class="uk-position-bottom uk-text-center" style="margin-bottom:8px;">
+                                                      <h3 uk-slider-parallax="x: 100,-100" style="font-family: 'Montserrat'; font-weight: 900;margin-bottom:8px;">BUSAN</h3>
+                                                      <p uk-slider-parallax="x: 200,-200" style="margin-top:0;">대한민국 부산</p>
+                                                  </div>
+                                              </div>
+                                            </li>
+                                          </a>
+                                          <a class="uk-width-1-3 uk-active" onclick="setSpotModal('seoul')" href="#modal-city-detail" uk-toggle="" aria-expanded="false" tabindex="-1">
+                                            <li>
+                                              <div class="uk-panel" style="width:100%;">
+                                                  <img style="width:100%;" src="myro_image/city/seoul.jpg" alt="cityimage" loading="lazy">
+                                                  <div class="main-photo-linear"></div>
+                                                  <div class="uk-position-bottom uk-text-center" style="margin-bottom:8px;">
+                                                      <h3 uk-slider-parallax="x: 100,-100" style="font-family: 'Montserrat'; font-weight: 900;margin-bottom:8px;">SEOUL</h3>
+                                                      <p uk-slider-parallax="x: 200,-200" style="margin-top:0;">대한민국 서울</p>
+                                                  </div>
+                                              </div>
+                                            </li>
+                                          </a>
+                                          <a class="uk-width-1-3" onclick="setSpotModal('gyeongju')" href="#modal-city-detail" uk-toggle="" aria-expanded="false" tabindex="-1">
+                                            <li>
+                                              <div class="uk-panel" style="width:100%;">
+                                                  <img style="width:100%;" src="myro_image/city/gyeongju.jpg" alt="cityimage" loading="lazy">
+                                                  <div class="main-photo-linear"></div>
+                                                  <div class="uk-position-bottom uk-text-center" style="margin-bottom:8px;">
+                                                      <h3 uk-slider-parallax="x: 100,-100" style="font-family: 'Montserrat'; font-weight: 900;margin-bottom:8px;">GYEONGJU</h3>
+                                                      <p uk-slider-parallax="x: 200,-200" style="margin-top:0;">대한민국 경주</p>
+                                                  </div>
+                                              </div>
+                                            </li>
+                                          </a>
+                                          <a class="uk-width-1-3" onclick="setSpotModal('gangneung')" href="#modal-city-detail" uk-toggle="" aria-expanded="false" tabindex="-1">
+                                            <li>
+                                              <div class="uk-panel" style="width:100%;">
+                                                  <img style="width:100%;" src="myro_image/city/gangneung.jpg" alt="cityimage" loading="lazy">
+                                                  <div class="main-photo-linear"></div>
+                                                  <div class="uk-position-bottom uk-text-center" style="margin-bottom:8px;">
+                                                      <h3 uk-slider-parallax="x: 100,-100" style="font-family: 'Montserrat'; font-weight: 900;margin-bottom:8px;">GANGNEUNG</h3>
+                                                      <p uk-slider-parallax="x: 200,-200" style="margin-top:0;">대한민국 강릉</p>
+                                                  </div>
+                                              </div>
+                                            </li>
+                                          </a>
+                                          <a class="uk-width-1-3" onclick="setSpotModal('yeosu')" href="#modal-city-detail" uk-toggle="" aria-expanded="false" tabindex="-1">
+                                            <li>
+                                              <div class="uk-panel" style="width:100%;">
+                                                  <img style="width:100%;" src="myro_image/city/yeosu.jpg" alt="cityimage" loading="lazy">
+                                                  <div class="main-photo-linear"></div>
+                                                  <div class="uk-position-bottom uk-text-center" style="margin-bottom:8px;">
+                                                      <h3 uk-slider-parallax="x: 100,-100" style="font-family: 'Montserrat'; font-weight: 900;margin-bottom:8px;">YEOSU</h3>
+                                                      <p uk-slider-parallax="x: 200,-200" style="margin-top:0;">대한민국 여수</p>
+                                                  </div>
+                                              </div>
+                                            </li>
+                                          </a></ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-icon uk-slidenav-previous uk-slidenav" href="#" uk-slidenav-previous="" uk-slider-item="previous"><svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.4" points="12.775,1 1.225,12 12.775,23 "></polyline></svg></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-icon uk-slidenav-next uk-slidenav" href="#" uk-slidenav-next="" uk-slider-item="next"><svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><polyline fill="none" stroke="#000" stroke-width="1.4" points="1.225,23 12.775,12 1.225,1 "></polyline></svg></a>
+            </div>
+        </div>
+        <section id="removeani" class="content section">
+            <!-- City Section -->
+            <article>
+                <div id="city" class="headercont">
+                    <h2><b>어디로 여행을 떠나시나요?</b></h2>
+                    <p class="uk-text-meta">
+                        여행지를 검색하거나 목록에서 직접 선택해주세요.
+                    </p>
+                    <div>
+                        <!-- <form class="uk-search uk-search-large">
+                            <span uk-search-icon></span>
+                            <input
+                                class="uk-search-input"
+                                type="text"
+                                id="destinationSearchKeyword"
+                                placeholder="Search"
+                            />
+                        </form> -->
+                        <div class="uk-search uk-search-default destination-search-form">
+                            <span uk-search-icon="" class="uk-icon uk-search-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></span>
+                            <input class="uk-search-input destination-search-input" type="text" id="destinationSearchKeyword">
+                        </div>
+                    </div>
+
+                    <!--World filter-->
+                    <div class="worldFil">
+                        <div id="wrapper-filter">
+                            <ul id="filter-bar">
+                                <span class="pill"></span>
+                                <li class="filter-option option-1 active" data-target="option-1" onclick="filterCities('all')">
+                                    전체
+                                </li>
+                                <li class="filter-option option-2" data-target="option-2" onclick="filterCities('europe')">
+                                    유럽
+                                </li>
+                                <li class="filter-option option-3" data-target="option-3" onclick="filterCities('asia')">
+                                    아시아
+                                </li>
+                                <li class="filter-option option-4" data-target="option-4" onclick="filterCities('america')">
+                                    아메리카
+                                </li>
+                                <li class="filter-option option-5" data-target="option-5" onclick="filterCities('oceania')">
+                                    오세아니아
+                                </li>
+                                <li class="filter-option option-6" data-target="option-6" onclick="filterCities('africa')">
+                                    아프리카
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="filter-sort-btn-container">
+                        <div class="uk-inline">
+                            <button class="uk-button uk-button-default" id="currentSortBtnName" aria-expanded="false">
+                                <div class="currentSortBtnNameDiv">
+                                    추천순<span class="material-icons">arrow_drop_down</span>
+                                </div>
+                            </button>
+
+                            <div uk-dropdown="mode: click; pos: bottom-right" class="uk-dropdown">
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li>
+                                        <a onclick="sortByPopular()" id="filterSortPopular">인기순</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="sortByRecommend()" id="filterSortRecommend">추천순</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="sortByClimbingUp()" id="filterSortClimbingUp">오름차순</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="sortByClimbingDown()" id="filterSortClimbingDown">내림차순</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-contents-container">
+                    <!-- 인기여행지 표시 div -->
+                    <div class="main-section-container" id="popularCity">
+                        <div class="main-section-title-container">
+                            <div class="main-section-title">인기여행지</div>
+                        </div>
+                        <div class="uk-position-relative uk-visible-toggle uk-light uk-slider uk-slider-container" tabindex="-1" uk-slider="center: true;autoplay: true">
+                            <ul class="uk-slider-items uk-grid" style="
+                                    margin-left: -24px;
+                                    margin-bottom: 16px;
+                                " id="topCityListForMobile"></ul>
+                        </div>
+                    </div>
+
+                    <!-- 대륙별 분류 표시 div -->
+                    <div id="continentalAreaForMobile"></div>
+                </div>
+
+                <!--City list Div-->
+                <div class="row" id="cityList">
+                
+                <!-- <div
+                    id="cityList"
+                    class="uk-grid-match uk-grid-small uk-text-center"
+                    uk-grid
+                ></div> -->
+            </article>
+        </section>
+    </div>
+
+    <div style="display: flex; justify-content: center">
+        <p uk-margin="">
+            <button onclick="location.href='#city' " class="uk-button uk-button-default uk-button-large uk-first-column">
+                여행지 선택화면으로 돌아가기
+            </button>
+        </p>
+    </div>
+
+    <!--Guide Modal-->
+    <div id="id01" class="w3-modalG">
+        <div class="w3-modalG-content">
+            <header>
+                <span onclick="closeYoutubeGideButton()" class="w3-display-topright center CloseStyle">×</span>
+                <div class="center">
+                    <b>마이로 이용방법</b><br>
+                    <hs>본 영상은 YouTube채널 방구석TV에 소개된 이용방법
+                        영상입니다.</hs>
+                </div>
+            </header>
+
+            <div id="player"></div>
+
+            <script>
+                if ($(window).width() > 600) {
+                    // 2. This code loads the IFrame Player API code asynchronously.
+                    // 3. This function creates an <iframe> (and YouTube player)
+                    //    after the API code downloads.
+                    var player;
+
+                    function onYouTubeIframeAPIReady() {
+                        player = new YT.Player("player", {
+                            height: "500",
+                            width: "100%",
+                            videoId: "l4VPjOtomNI",
+                            events: {
+                                onReady: onPlayerReady,
+                                onStateChange: onPlayerStateChange,
+                            },
+                            playerVars: {
+                                start: 98,
+                                autoplay: 1,
+                            },
+                        });
+                    }
+
+                    // 4. The API will call this function when the video player is ready.
+                    function onPlayerReady(event) {
+                        event.target.playVideo();
+                    }
+
+                    // 5. The API calls this function when the player's state changes.
+                    //    The function indicates that when playing a video (state=1),
+                    //    the player should play for six seconds and then stop.
+                    var done = false;
+
+                    function onPlayerStateChange(event) {
+                        if (event.data == YT.PlayerState.PLAYING && !done) {
+                            // setTimeout(stopVideo, 3000);
+                            done = true;
+                        }
+                    }
+
+                    function stopVideo() {
+                        player.stopVideo();
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+    <!-- Youtube Modal test-->
+    <!--
+<div id="YoutubeInfoPlayList_Modal" class="modal-small-YoutubeInfoPlayList">
+
+    <div class="modal-small-content-YoutubeInfoPlayList w3-animate-zoom card z-depth-4">
+
+        <header class="">
+
+            <span onclick="HideYoutubeInfoPlayList_Modal()" class="w3-display-topright CloseStyle">&times;</span>
+
+            <h7>여행정보영상</h7>
+
+        </header>
+        
+        <div id="InfoPlayList" style="text-align:left;">
+
+        </div>
+
+    </div>
+</div>
+-->
+
+    <!-- Notice Modal (09.03) 긴급공지모드로 변경 -->
+    <div id="noticeModal_Main" class="modal-small-notice" style="display: none">
+        <div class="modal-small-content-notice-main w3-animate-zoom">
+            <header>
+                <span onclick="hideNoticeMenu_Main()" class="w3-display-topright modal-notice-close">×</span>
+                <h3><b>공 지 사 항</b></h3>
+            </header>
+            <div class="urgency-container">
+                <p class="urgency-container-text">
+                    현재 시스템 전면 업데이트 중에 있어 서비스가 매우
+                    불안정한 상태이며, 모바일 앱 사용이 제한된 상태입니다.
+                    이용에 불편을 드려 대단히 죄송합니다. 최대한 빠른 시일
+                    내에 서비스를 정상화할 예정이며, 보다 나은 서비스를
+                    제공해 드리기 위해 항상 노력하는 마이로가 되겠습니다.
+                    감사합니다.
+                </p>
+            </div>
+            <!-- <div class="reqSpotRegSecondCDivMain">
+                <ul class="collapsible popout">
+                    <li>
+                        <div class="collapsible-header">업데이트 예정<span class="new badge red">1</span></div>
+                        <div class="collapsible-body">
+                            <ul class="collapsible-body-ul">
+                                <li class="collapsible-body-li">마이로 2.0 업데이트 예정입니다.<h8 class="rednew">NEW</h8></li>
+                                <li class="collapsible-body-li">다양한 국내 여행지들을 업데이트 예정입니다.</li>
+                                <li class="collapsible-body-li">중복 장소 선택 기능을 업데이트 예정입니다.</li>
+                                <li class="collapsible-body-li">다중 여행지 선택 기능을 업데이트 예정입니다.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">업데이트 완료<span class="new badge red">1</span></div>
+                        <div class="collapsible-body">
+                            <ul class="collapsible-body-ul">
+                                <li class="collapsible-body-li">(21.09.03)마이로 2.0 업데이트 임시 적용</li>
+                                <li class="collapsible-body-li">
+                                    (20.07.12) 6개의 국내 여행지가 추가되었습니다.
+                                    <br /><h9>- 목록 : 제주도, 부산, 강릉, 안동, 전주, 목포 (지속적인 업데이트 예정)</h9>
+                                </li>
+                                <li class="collapsible-body-li">(20.06.01) 추천 일정 목록에 '아이들과 가기 좋은 관광명소' 코스가 추가되었습니다.</li>
+                                <li class="collapsible-body-li">
+                                    (20.02.03) 마이로 애플리케이션이 출시되었습니다.
+                                    <br />
+                                    <hs>* 아이폰 다운로드 : <a href="https://apps.apple.com/kr/app/%EB%A7%88%EC%9D%B4%EB%A1%9C-myro/id1496337358">애플 앱 스토어로 이동하기</a></hs>
+                                    <br />
+                                    <hs>* 안드로이드 다운로드 : <a href="https://play.google.com/store/apps/details?id=com.myro.myro">구글 플레이 스토어로 이동하기</a></hs>
+                                </li>
+                                <li class="collapsible-body-li">(19.09.18) 모바일에서 이용이 편하도록 UI/UX 디자인을 개선했습니다.</li>
+                                <a target="_blank" rel="noopener noreferrer" href="myro_image/event.jpg">
+                                    <li class="collapsible-body-li">(종료)마이로로 해외여행 일정 쉽게 짜고 스타벅스 기프티콘 받자!(~2019.08.11)</li>
+                                </a>
+                                <li class="collapsible-body-li">(19.08.01) 추천 호텔 기능이 업데이트되었습니다.</li>
+                                <li class="collapsible-body-li">(19.07.29) 추천 일정 목록에 'TV 속 그 장소 ( KBS2 배틀트립, tvN 짠내투어 )' 코스가 추가되었습니다. <br /><h9>- 목록 : 런던, 바르셀로나, 프라하, 부다페스트, 블라디보스톡, 홍콩, 싱가포르, 타이페이, 가오슝, 방콕, 치앙마이, 다낭, 호치민, 하노이, 나트랑, 마닐라, 발리, 로스앤젤레스, 샌프란시스코, 브리즈번, 빈, 잘츠부르크</h9></li>
+                                <li class="collapsible-body-li">(19.07.23) 70번째 여행지에 인도네시아 '발리'가 추가되었습니다.</li>
+                                <li class="collapsible-body-li">(19.06.24) 일차별 전체 일정 변경 기능이 업데이트되었습니다.</li>
+                                <li class="collapsible-body-li">(19.06.17) 일정 전송 방식에 엑셀 출력하기 기능을 추가하였습니다.</li>
+                                <li class="collapsible-body-li">(19.06.10) 일정 작성 페이지의 UI를 일부 변경하였습니다.</li>
+                                <li class="collapsible-body-li">(19.06.03) 다중 호텔 선택 기능이 업데이트되었습니다.</li>
+                                <li class="collapsible-body-li">(19.04.01) 추천 일정 목록에 '인생사진 명소' 코스가 추가되었습니다.</li>
+                                <li class="collapsible-body-li">(19.03.20) 69번째 여행지에 태국 '코사무이'가 추가되었습니다.</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">오류사항 Fix<span class="badge">1</span></div>
+                        <div class="collapsible-body">
+                            <ul class="collapsible-body-ul">
+                                <li class="collapsible-body-li">
+                                    인터넷 브라우저 익스플로러(explorer)에서 일부 UI가 제대로 구현되지 않는 현상 수정
+                                    <h7 class="greennew">원활한 이용을 위해 크롬(Chrome)브라우저 사용을 권장합니다.</h7>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+            <div class="modal-notice-footer">
+                <div class="main-btn-normal" onclick="hideNoticeMenu_Main()">
+                    확 인
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-city-detail" class="uk-flex-top city-info-modal uk-modal" uk-modal="">
+        <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical" style="max-width: 1400px !important">
+            <button class="uk-modal-close-full uk-close-large uk-icon uk-close" type="button" uk-close=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><line fill="none" stroke="#000" stroke-width="1.4" x1="1" y1="1" x2="19" y2="19"></line><line fill="none" stroke="#000" stroke-width="1.4" x1="19" y1="1" x2="1" y2="19"></line></svg></button>
+            <div class="uk-grid-match uk-grid-small uk-grid uk-grid-stack" uk-grid="">
+                <div class="uk-width-1-3@l">
+                    <div class="uk-background-cover" id="cityBgImageForModal"></div>
+                </div>
+                <div class="uk-width-2-3@l">
+                    <div class="uk-padding-large">
+                        <h2 style="
+                                font-family: 'Montserrat';
+                                font-weight: 900;
+                                margin-bottom: 0;
+                            " id="engCityNameForModal"></h2>
+                        <div style="
+                                font-family: 'Montserrat';
+                                font-size: 1.2rem;
+                            " id="korCityNameForModal"></div>
+                        <p class="main-city-info-p" id="cityIntroductionTxtForModal"></p>
+                        <div class="uk-child-width-1-4 uk-grid-small uk-text-center uk-grid uk-grid-stack" style="margin: 16px 0" uk-grid="">
+                            <div class="main-city-symbol-container">
+                                <i class="material-icons" style="font-size: 32px; margin: 8px">person</i>
+                                <div class="main-city-info-text" id="selectedCntFromCityListForModal"></div>
+                            </div>
+                            <div class="main-city-symbol-container">
+                                <i class="material-icons" style="font-size: 32px; margin: 8px">bolt</i>
+                                <div class="main-city-info-text" id="voltageForModal"></div>
+                            </div>
+                            <div class="main-city-symbol-container">
+                                <i class="material-icons" style="font-size: 32px; margin: 8px">language</i>
+                                <div class="main-city-info-text" id="visaForModal"></div>
+                            </div>
+                            <div class="main-city-symbol-container">
+                                <i class="material-icons" style="font-size: 32px; margin: 8px">history</i>
+                                <div class="main-city-info-text" id="timeDifferenceForModal"></div>
+                            </div>
+                        </div>
+                        <button id="locationForModal" class="uk-button myro-color-button uk-button-large">
+                            일정만들기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--        <div id="popupModal_Main" class="modal-small-popup" style="display: flex">-->
+    <!--            <div class="modal-small-content-popup-main w3-animate-zoom">-->
+    <!--                <header>-->
+    <!--                    &lt;!&ndash; <span onclick="hidePopupMenu_Main()" class="w3-display-topright modal-notice-close">&times;</span> &ndash;&gt;-->
+    <!--                    &lt;!&ndash; <h3><b>공 지 사 항</b></h3> &ndash;&gt;-->
+    <!--                </header>-->
+    <!--                <div class="popup-image-container">-->
+    <!--                    <img id="popupEventImage" src="myro_image/eventImage_006.jpg" alt="image" loading="lazy" />-->
+    <!--                </div>-->
+    <!--                <div class="modal-popup-footer">-->
+    <!--                    <a class="modal-popup-link-text" onclick="" href="/eventpage" target="_blank"> 상세보기 </a>-->
+    <!--                    <div class="modal-popup-btn" onclick="hidePopupMenu_Main()">닫기</div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!-- Footer -->
+    <footer class="mainFooter">
+        <!-- Store link Div -->
+        <div>
+            <a onclick="window.open('https://www.instagram.com/myro__official/','_blank')"><i class="fa fa-instagram w3-hover-opacity footericoncss"></i></a>
+            <a onclick="window.open('https://www.facebook.com/cokr.myro','_blank')"><i class="fa fa-facebook-official w3-hover-opacity footericoncss"></i></a>
+            <a onclick="window.open('https://www.youtube.com/watch?v=KD5rhdHhtyg&amp;t=0s','_blank')"><i class="fa fa-youtube-square w3-hover-opacity footericoncss"></i></a>
+            <a onclick="window.open('https://blog.naver.com/myrocdo','_blank')" id="myroBlogcss"><img src="myro_image/naverblogicon.png" alt="img" loading="lazy"></a>
+        </div>
+        <div class="bot_storelink">
+            <a href="https://apps.apple.com/kr/app/%EB%A7%88%EC%9D%B4%EB%A1%9C-myro/id1496337358"><img src="myro_image/applestore.png" alt="앱스토어" loading="lazy"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.myro.myro"><img src="myro_image/playstore.png" alt="플레이스토어" loading="lazy"></a>
+        </div>
+        <div style="margin: 16px">
+            <a onclick="" href="/userAgreements">
+                <h7>이용약관</h7>
+            </a>
+            <h7>|</h7>
+            <a onclick="" href="/userPolicy">
+                <h7>개인정보처리방침</h7>
+            </a>
+        </div>
+        <h7>주식회사 엠와이알오</h7>
+        <h7>사업자등록번호 649-88-01082</h7>
+        <h7>서울시 강남구 역삼동 741-11 3F</h7>
+
+        <h7>
+            <a href="mailto:contact@myro.co.kr"> contact@myro.co.kr</a>
+        </h7>
+        <p><h7>© MYRO Co.,Ltd. All rights reserved.</h7></p>
+    </footer>
+    <script src="ref/polyfill.min.js"></script>
+    <!-- <script src="/ref/materialize.js"></script> -->
+    <script src="build/myro1.js"></script>
+    <!-- <script src="/ref/uikit.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit.min.js"></script> -->
+
+    <script>
+        let headAddress = "https://www.myro.co.kr";
+    </script>
+
+
+</body></html>

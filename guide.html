@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html><head>
+    <title>마이로(MYRO) - AI 여행 일정 플래너</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="마이로(MYRO)-쉽고 간편한 여행 일정 플래너">
+    <meta name="keywords" content="마이로, myro, 여행일정, 마이로 여행일정, 추천 일정, 추천 코스, 여행 플래너, 5분 만에 여행 일정, 유럽 여행, 홍콩 여행, 대만 여행, 나만의 여행 일정, 해외여행, 국내여행">
+
+    <!--Open Graph-->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="마이로(MYRO)">
+    <meta property="og:description" content="국내외 70개 여행 도시 / 여행 일정 플래너 / 일자별 경로 제공 / 가고 싶은 장소만 넣으면 되는 간단하고 쉬운 나만의 여행 일정 만들기">
+    <meta property="og:site_name" content="마이로">
+    <meta property="og:image" content="/myro_image/meta_logo.png">
+    <meta property="og:url" content="https://www.myro.co.kr">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <link rel="shortcut icon" href="/myro_image/favicon.ico">
+
+    <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="header.css">
+<link rel="stylesheet" type="text/css" href="uikit.min.css">
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" /> -->
+<div id="headerArea">
+<nav id="navcc" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+    <div class="nav-wrapper navWidth">
+        <a href="/" id="navlefttext">
+            <b>MYRO</b>
+            <h7 id="navlongtext2">&nbsp;MAKE YOUR ROUTE OPTIMIZED</h7>
+            <!-- h7사이에 ~~환영합니다 -->
+            <!-- <h7 id="navlongtext2"></h7> -->
+        </a>
+
+        <ul id="navtextbtn1" class="nav-button-container">
+            <li id="navtextbtn1_1" style="display: none;">
+                <a onclick="start()">여행지</a>
+            </li>
+
+            <li id="navtextbtn1_2" style="display: none;">
+                <a href="/about">마이로</a>
+            </li>
+
+            <li id="navtextbtn1_3" style="display: none;">
+                <a href="/guide" id="guidebutton">이용방법</a>
+            </li>
+            <!--                <li class="mainNoticeStyle" id="navtextbtn1_4">-->
+            <!--                    <a onclick="showNoticeMenu_Main()"> <i class="material-icons">campaign</i><span class="mainNavBadge badge red"></span> </a>-->
+            <!--                </li>-->
+            <li id="navtextbtn1_5" class="header-start-button">
+                <a href="/" id="guidebutton">마이로 시작하기</a>
+            </li>
+
+            <li id="loginLogoutNav">
+                <div class="nav-profile-btn-container">
+                    <span id="loginLogout"><a onclick="window.open('/login')">로그인</a></span>
+                </div>
+            </li>
+
+            <li class="header-sidebar-button" id="navtextbtn1_5">
+                <a uk-toggle="target: #offcanvas-flip" class="header-menu-flex" tabindex="0" aria-expanded="false">
+                    <i class="material-icons">menu</i>
+                </a>
+            </li>
+
+            <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas">
+                <div class="uk-offcanvas-bar nav-sidebar">
+                    <ul class="uk-nav uk-nav-default">
+                        <!-- 여긴 모바일 화면일 때 활성화 -->
+                        <div id="loginLogoutMobile">
+                            <!-- 로그인 상태라면 여기 display -->
+                            <div class="nav-sidebar-avatar-container">
+                                <div class="nav-sidebar-avatar">
+                                    <span id="userNickNameLogoByPhone">
+                                    </span>
+                                    <!-- <img src="/myro_image/avatar.png" alt="avatar" /> -->
+                                </div>
+                                <div class="user-text">
+                                    <span id="userNickNameByPhone"></span>
+                                </div>
+                                <span id="loginLogoutByPhone">
+                                    <button class="logout-btn" onclick="logout()">
+                                        로그아웃
+                                    </button>
+                                </span>
+                            </div>
+
+                            <!-- 로그아웃 상태라면 여기 display -->
+                            <!-- <div class="nav-sidebar-avatar-container">
+                                <button class="login-btn" onclick="">로그인</button>
+                            </div> -->
+                        </div>
+                        <li class="uk-active">
+                            <a href="/about">마이로소개</a>
+                        </li>
+
+                        <!-- <li class="uk-active"><a onclick="openYoutubeGideButton()" id="guidebuttonByPhone">이용방법</a></li> -->
+
+                        <li class="uk-parent">
+                            <a href="/">메인페이지</a>
+                        </li>
+                        <li class="uk-parent">
+                            <a href="/mypage">마이페이지</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ul>
+    </div>
+</nav>
+</div>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/ref/uikit.min.js"></script>
+
+<script>
+let userEmail = ``;
+let userNickName = ``;
+let userSignupOrigin = ``;
+let userEmailSubString = userEmail.substring(0, 1);
+let userNickNameSubString = userNickName.substring(0, 1);
+let isNotLoginWithToken;
+
+if (!userEmail && !userNickName) {
+    if (window.localStorage.myroRefreshToken) {
+        $.ajax({
+            url: "/checkRefreshToken",
+            type: "PUT",
+            data: {
+                refreshToken: window.localStorage.myroRefreshToken,
+            },
+            success: function (res) {
+                if (res.statusCode == 200) {
+                    window.localStorage.setItem(
+                        "myroRefreshToken",
+                        res.jwtRefreshToken
+                    );
+                    userEmail = res.userEmail;
+                    userNickName = res.userNickName;
+                    userSignupOrigin = res.userSignupOrigin;
+                    userEmailSubString = userEmail.substring(0, 1);
+                    userNickNameSubString = userNickName.substring(0, 1);
+                    $("#loginLogout").html(`<button
+                        class="nav-profile-btn"
+                        type="button"
+                    >
+                        <div><span id="userNickNameLogo"></span></div>
+                    </button>
+                    <div uk-dropdown="mode: click" class="header-dropdown-style">
+                        <ul>
+                            <div
+                                style="color: #000; text-align: center"
+                            ></div>
+                            <li><a href="/mypage">마이페이지</a></li>
+                            <li><a onclick="logout()">로그아웃</a></li>
+                        </ul>
+                    </div>`);
+                    $("#userNickNameLogo").append(userNickNameSubString);
+                } else if (res.statusCode == 401) {
+                }
+            },
+            fail: function (res) {},
+        });
+    }
+}
+if (userEmail) {
+    if ($(window).width() <= 600) {
+        $("#userNickNameByPhone").html(userNickName);
+        let userNickNameSubStringByPhone = userNickName.substring(0, 1);
+        $("#userNickNameLogoByPhone").html(userNickNameSubStringByPhone);
+        $("#loginLogout").hide();
+    } else {
+        $("#loginLogout").append(`<button
+                        class="nav-profile-btn"
+                        type="button"
+                    >
+                        <div><span id="userNickNameLogo"></span></div>
+                    </button>
+                    <div uk-dropdown="mode: click" class="header-dropdown-style">
+                        <ul>
+                            <div
+                                style="color: #000; text-align: center"
+                            ></div>
+                            <li><a href="/mypage">마이페이지</a></li>
+                            <li><a onclick="logout()">로그아웃</a></li>
+                        </ul>
+                    </div>`);
+        let userEmailSubString = userEmail.substring(0, 1);
+        let userNickNameSubString = userNickName.substring(0, 1);
+        $("#userNickNameLogo").append(userNickNameSubString);
+        // console.log(userName);
+    }
+    // $('#loginBtn').hide();
+} else {
+    if ($(window).width() <= 600) {
+        $("#loginLogoutByPhone").html(
+            `<button class="logout-btn" onclick="loginByPhone()" >로그인</button>`
+        );
+    } else {
+        $("#loginLogout").html(
+            `<a onclick="window.open('/login')">로그인</a>`
+        );
+        // $('#loginLogout').hide();
+    }
+}
+function loginByPhone() {
+    window.open("/login");
+}
+
+let pageLocation = location.href.split("/")[3];
+if (pageLocation == "" || pageLocation.indexOf("myro1") != -1) {
+    $(document).scroll(function () {
+        var $nav = $("#navcc");
+        $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+        //                $("#navcc b").css("display", "inherit");
+    });
+    $("#navtextbtn1_5").hide();
+} else if (pageLocation.indexOf("guide") != -1) {
+    $("#navtextbtn1_1").hide();
+    $("#navtextbtn1_2").hide();
+    $("#navtextbtn1_3").hide();
+    $("#navtextbtn1_4").hide();
+    $("#navcc").css("background-color", "#fff");
+    $("#navcc").css("color", "#000");
+} else {
+    $("#navtextbtn1_1").hide();
+    $("#navtextbtn1_2").hide();
+    $("#navtextbtn1_3").hide();
+    $("#navtextbtn1_4").hide();
+    $("#navtextbtn1_5").hide();
+    $("#navcc").css("background-color", "#fff");
+    $("#navcc").css("color", "#000");
+    if ($(window).width() >= 600) {
+        $("#navcc").addClass("nav-shadow");
+    }
+}
+
+function logout() {
+    window.localStorage.removeItem("myroRefreshToken");
+
+    $.ajax({
+        type: "GET",
+        url: headAddress + "/logout",
+
+        success: function (data) {
+            $("#loginLogout").html(
+                `<a onclick="window.open('/login')">로그인</a>`
+            );
+            $("#loginLogoutByPhone").html(
+                `<button class="logout-btn" onclick="loginByPhone()" >로그인</button>`
+            );
+            userEmail = null;
+            userNickName = null;
+            userSignupOrigin = null;
+            location.href = "/";
+        },
+        fail: function () {},
+    });
+}
+
+function setParentPage(_userEmail, _userNickName, _userSignupOrigin) {
+    userEmail = _userEmail;
+    userNickName = _userNickName;
+    userSignupOrigin = _userSignupOrigin;
+    userEmailSubString = userEmail.substring(0, 1);
+    userNickNameSubString = userNickName.substring(0, 1);
+
+    $("#loginLogout").html(`<button
+            class="nav-profile-btn"
+            type="button"
+        >
+            <div><span id="userNickNameLogo"></span></div>
+        </button>
+        <div uk-dropdown="mode: click" class="header-dropdown-style">
+            <ul>
+                <div
+                    style="color: #000; text-align: center"
+                ></div>
+                <li><a href="/mypage">마이페이지</a></li>
+                <li><a onclick="logout()">로그아웃</a></li>
+            </ul>
+        </div>`);
+    $("#loginLogoutByPhone").html(
+        `<button class="logout-btn" onclick="logout()" >로그아웃</button>`
+    );
+
+    $("#userNickNameByPhone").html(userNickName);
+    let userNickNameSubStringByPhone = userNickName.substring(0, 1);
+    $("#userNickNameLogoByPhone").html(userNickNameSubStringByPhone);
+    // console.log(location.href.indexOf('city'));
+    // console.log(location.href.indexOf('myro2'));
+    // console.log(location.href.indexOf('savedRouteToken'));
+    let isNotLoginWithToken = false;
+    if (
+        isNotLoginWithToken &&
+        location.href.indexOf("city") != -1 &&
+        location.href.indexOf("myro2") != -1 &&
+        location.href.indexOf("savedRouteToken") != -1
+    ) {
+        // console.log(132131);
+        let l = location.href;
+        if (l.split("?")[1].split("&")[1]) {
+            let ll = l.split("?")[1].split("&")[1];
+            if (ll.split("=")[0] == "savedRouteToken") {
+                savedRouteToken = ll.split("=")[1];
+                addUserTrackingData("savedRouteToken:" + savedRouteToken);
+                // console.log(savedRouteToken);
+                //루트토큰 있고 없고&& 로그인 및 권한~
+                if (savedRouteToken) {
+                    if (userEmail) {
+                        $.ajax({
+                            type: "GET",
+                            url: headAddress + "/verifyAuthority",
+                            data: {
+                                savedRouteToken: savedRouteToken,
+                                userEmail: userEmail,
+                            },
+                            success: function (res) {
+                                if (
+                                    res.statusCode == 200 &&
+                                    (res.msg == "여행 주인" ||
+                                        res.msg == "여행 친구")
+                                ) {
+                                    console.log("여행주인");
+                                    $("#saveRouteByExelBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#sendEmailBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#modifySavedRouteBtnInBox").css(
+                                        "display",
+                                        "flex"
+                                    );
+                                    $("#duplicateRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#saveRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#loginBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                } else if (
+                                    res.statusCode == 200 &&
+                                    res.msg == "여행 방문자"
+                                ) {
+                                    console.log(44444444);
+                                    $("#saveRouteByExelBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#sendEmailBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#modifySavedRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#duplicateRouteBtnInBox").css(
+                                        "display",
+                                        "flex"
+                                    );
+                                    $("#saveRouteBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                    $("#loginBtnInBox").css(
+                                        "display",
+                                        "none"
+                                    );
+                                }
+                            },
+                        });
+                        // console.log('토큰 있고 이메일 있고');
+                    } else {
+                        // alert('로그인을 하셔야 합니다')
+                        // window.open('/login')
+                        // location.href = '/'
+                        $("#saveRouteByExelBtnInBox").css(
+                            "display",
+                            "flex"
+                        );
+                        $("#sendEmailBtnInBox").css("display", "none");
+                        $("#modifySavedRouteBtnInBox").css(
+                            "display",
+                            "none"
+                        );
+                        $("#duplicateRouteBtnInBox").css("display", "none");
+                        $("#saveRouteBtnInBox").css("display", "none");
+                        $("#loginBtnInBox").css("display", "flex");
+                    }
+                }
+                showLoading();
+                $.ajax({
+                    type: "GET",
+                    url: headAddress + "/getDataFromSavedRoute",
+                    data: {
+                        savedRouteToken: savedRouteToken,
+                    },
+                    success: function (data) {
+                        let gestureHandlingType = "cooperative";
+                        if ($(window).width() > 600) {
+                            gestureHandlingType = "";
+                        }
+                        document.getElementById("routepage").style.display =
+                            "block";
+                        map2 = new google.maps.Map(
+                            document.getElementById("googleMapForRoute"),
+                            {
+                                zoom: 11,
+                                center: {
+                                    lat: startLat,
+                                    lng: startLng,
+                                },
+                                gestureHandling: gestureHandlingType,
+                            }
+                        );
+                        dataFromServer = data;
+                        backupDataFromServer = JSON.parse(
+                            JSON.stringify(dataFromServer)
+                        );
+                        // 공항, 이메일 정보 등
+                        backupDataFromSavedToken = JSON.parse(
+                            JSON.stringify(dataFromServer)
+                        );
+                        delete backupDataFromSavedToken.spotsByDay;
+                        delete backupDataFromSavedToken.stayingInfos;
+                        delete backupDataFromSavedToken.originalSchedule;
+                        for (
+                            let i = 0;
+                            i <
+                            backupDataFromSavedToken.originalSpotsNo.length;
+                            i++
+                        ) {
+                            addSpotToSelectedSpotsWhenHaveToken(
+                                backupDataFromSavedToken.originalSpotsNo[i]
+                            );
+                        }
+                        startTravelDate = new Date(
+                            dataFromServer.startTravelDate
+                        );
+                        travelDay = dataFromServer.spotsByDay.length - 1;
+                        setEndTravelDateAfterSettingStartDateAndSetEDailyTimeSettingArea(
+                            startTravelDate
+                        );
+                        setDailyTimeSettingArea(startTravelDate);
+                        $("#showingTravelDay").html(
+                            travelDay + "&nbsp" + "DAY"
+                        );
+                        $("#showingTravelDay3").html(travelDay);
+                        $("#travelDayForRouteMap").html(travelDay);
+                        $("#travelDay").val(travelDay);
+                        changeSelectedHotelAreaWhenChangeDate();
+
+                        //originalHotels로 넣어주는거 변경(no만 갖고 있으니까 해당 정보 불러온 후 해야함)
+                        // for (let i = 1; i < dataFromServer.spotsByDay.length; i++) {
+                        //     selectedHotels.push(dataFromServer.spotsByDay[i][0]);
+
+                        // }
+                        setHotelsWhenHaveToken(selectedHotels);
+                        //dataFromServer.originalSchedule
+                        totalTravelMins = 0;
+                        for (
+                            let i = 0;
+                            i < dataFromServer.originalSchedule.length;
+                            i++
+                        ) {
+                            let originalSchedule =
+                                dataFromServer.originalSchedule[i];
+                            let startTime = originalSchedule.startTime;
+                            let endTime = originalSchedule.endTime;
+                            let dailySpendingMins =
+                                getAbsoluteMinuteFromHHMM(endTime) -
+                                getAbsoluteMinuteFromHHMM(startTime);
+                            if (dailySpendingMins < 0) {
+                                dailySpendingMins += 1440;
+                            }
+                            totalTravelMins += dailySpendingMins;
+                            let startTimeForPresent =
+                                startTime.substr(0, 2) +
+                                ":" +
+                                startTime.substr(2, 4);
+                            let endTimeForPresent =
+                                endTime.substr(0, 2) +
+                                ":" +
+                                endTime.substr(2, 4);
+                            $('input[name="dailyStartTimes"]')[i].value =
+                                startTimeForPresent;
+                            $('input[name="dailyEndTimes"]')[i].value =
+                                endTimeForPresent;
+                        }
+
+                        let totalTravelH = Math.floor(totalTravelMins / 60);
+                        let totalTravelM = Math.floor(totalTravelMins % 60);
+                        $("#totalTravelH").html(totalTravelH);
+                        $("#totalTravelM").html(totalTravelM);
+                        $(".myro2-multibtndiv-modal").css("left", "360px");
+                        $("#cart2NoList").css("display", "none");
+                        $("#getScheduleFileByExcelBtnT").css(
+                            "display",
+                            "block"
+                        );
+                        $("#copyRouteTokenBtnT").css("display", "block");
+                        $("#saveButton").css("display", "none");
+                        $("#modifyFixButton").css("display", "block");
+
+                        closePlanSideBar();
+                        modifyModeDeActivate();
+                        openPlanPageWidely = false;
+                        setMap(dataFromServer);
+                        hideLoading();
+                    },
+                });
+            }
+        }
+    } else if (
+        location.href.indexOf("city") != -1 &&
+        location.href.indexOf("myro2") != -1 &&
+        location.href.indexOf("savedRouteToken") == -1
+    ) {
+        $("#saveRouteByExelBtnInBox").css("display", "none");
+        $("#sendEmailBtnInBox").css("display", "none");
+        $("#modifySavedRouteBtnInBox").css("display", "none");
+        $("#duplicateRouteBtnInBox").css("display", "none");
+        $("#saveRouteBtnInBox").css("display", "flex");
+        $("#loginBtnInBox").css("display", "none");
+    } else if (
+        location.href.indexOf("city") != -1 &&
+        location.href.indexOf("myro2") != -1 &&
+        location.href.indexOf("savedRouteToken") != -1
+    ) {
+        $("#saveRouteByExelBtnInBox").css("display", "none");
+        $("#sendEmailBtnInBox").css("display", "none");
+        $("#modifySavedRouteBtnInBox").css("display", "none");
+        $("#duplicateRouteBtnInBox").css("display", "none");
+        $("#saveRouteBtnInBox").css("display", "flex");
+        $("#loginBtnInBox").css("display", "none");
+    }
+    // console.log(userNameSubString);
+    $("#userNickNameLogo").append(userNickNameSubString);
+}
+// }
+
+// userNickNameLogo
+// $('#userNickNameLogoByPhone').html(userNickNameSubStringByPhone)
+// console.log(userNickName);
+</script>
+
+    <div class="root">
+        <div class="wrapper">
+            <div class="top-container">
+                <h1><b>4단계로 간편하게 끝내는 여행 스케줄링</b></h1>
+            </div>
+            <div style="width: 100%">
+                <div class="section-container">
+                    <div class="flex-container-reverse">
+                        <div class="half-flex-div-video">
+                            <div class="video-container">
+                                <div id="controlBtn01" class="video-control-btn" onclick="aud_play_pause(this)" name="controlBtn">
+                                    <i class="material-icons" style="
+                                            font-size: 20px;
+                                            cursor: pointer;
+                                            color: #fff;
+                                        ">pause</i><i class="material-icons" style="font-size: 20px;cursor: pointer;color:#fff; display:none;">play_arrow</i>
+                                </div>
+                                <video autoplay="" muted="" loop="" class="video-div" id="video01" name="guideVideo">
+                                    <source src="/myro_video/GuideVideo01.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="half-flex-div-text">
+                            <div class="section-title-text">
+                                1. 여행지 선택
+                            </div>
+                            <div class="section-text">
+                                먼저 여행을 떠날 도시를 선택하세요.
+                            </div>
+                            <div class="section-text">
+                                100여개의 유명 여행지가 준비되어 있으며, 지속적으로 업데이트 중입니다.
+                            </div>
+                            <div class="section-text">
+                                인기 여행지, 대륙별 필터를 이용해 검색
+                                결과를 좁힐 수 있습니다.
+                            </div>
+                            <div class="section-text">
+                                도시를 선택하고 간단한 여행 정보들을
+                                확인해보세요.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-container">
+                    <div class="flex-container">
+                        <div class="half-flex-div-video">
+                            <div class="video-container">
+                                <div id="controlBtn02" class="video-control-btn" onclick="aud_play_pause(this)" name="controlBtn">
+                                    <i class="material-icons" style="
+                                            font-size: 20px;
+                                            cursor: pointer;
+                                            color: #fff;
+                                        ">pause</i><i class="material-icons" style="font-size: 20px;cursor: pointer;color:#fff; display:none;">play_arrow</i>
+                                </div>
+                                <video autoplay="" muted="" loop="" class="video-div" id="video02" name="guideVideo">
+                                    <source src="/myro_video/GuideVideo02.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="half-flex-div-text">
+                            <div class="section-title-text">
+                                2. 장소 선택
+                            </div>
+                            <div class="section-text">
+                                여행 일자, 숙소, 가고 싶은 장소만
+                                선택하세요.
+                            </div>
+                            <div class="section-text">
+                                숙소를 정하지 않았어도, 가고 싶은 장소를
+                                정하지 않았어도 상관없어요.
+                            </div>
+                            <div class="section-text">
+                                유저 데이터를 기반으로 마이로가 추천해주는
+                                장소들을 선택하세요.
+                            </div>
+                            <div class="section-text">
+                                검색해도 나오지 않는 장소들은 직접 등록이
+                                가능합니다.
+                            </div>
+                            <div class="section-text">
+                                선택이 끝났다면 일정 생성 버튼을 눌러 작성을
+                                완료하세요.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-container">
+                    <div class="flex-container-reverse">
+                        <div class="half-flex-div-video">
+                            <div class="video-container">
+                                <div id="controlBtn03" class="video-control-btn" onclick="aud_play_pause(this)" name="controlBtn">
+                                    <i class="material-icons" style="
+                                            font-size: 20px;
+                                            cursor: pointer;
+                                            color: #fff;
+                                        ">pause</i><i class="material-icons" style="font-size: 20px;cursor: pointer;color:#fff; display:none;">play_arrow</i>
+                                </div>
+                                <video autoplay="" muted="" loop="" class="video-div" id="video03" name="guideVideo">
+                                    <source src="/myro_video/GuideVideo03.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="half-flex-div-text">
+                            <div class="section-title-text">
+                                3. 일정 확인 및 편집
+                            </div>
+                            <div class="section-text">
+                                마이로의 인공지능이 위치, 동선, 장소별 영업시간 등
+                                여행 일정에 필요한 모든 요소를 고려하여
+                                만들어준 최적의 여행 일정을 확인하세요.
+                            </div>
+
+                            <div class="section-text">
+                                장소를 드래그하여 일정을 수정하고 일자별
+                                스케줄을 확인해보세요.
+                            </div>
+                            <div class="section-text">
+                                일정을 저장하면 웹이나 앱에서 언제든지
+                                편집이 가능하고 친구와 공유도 가능합니다.
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-container">
+                    <div class="flex-container">
+                        <div class="half-flex-div-video">
+                            <div class="video-container">
+                                <div id="controlBtn04" class="video-control-btn" onclick="aud_play_pause(this)" name="controlBtn">
+                                    <i class="material-icons" style="
+                                            font-size: 20px;
+                                            cursor: pointer;
+                                            color: #fff;
+                                        ">pause</i><i class="material-icons" style="font-size: 20px;cursor: pointer;color:#fff; display:none;">play_arrow</i>
+                                </div>
+                                <video autoplay="" muted="" loop="" class="video-div" id="video04" name="guideVideo">
+                                    <source src="/myro_video/GuideVideo04.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="half-flex-div-text">
+                            <div class="section-title-text">4. 여행</div>
+                            <div class="section-text">
+                                모든 준비가 끝났습니다.
+                            </div>
+                            <div class="section-text">
+                                웹에서나 앱에서나 마이페이지에서 일정을
+                                확인하세요.
+                            </div>
+                            <div class="section-text">
+                                일정표를 엑셀로 출력하거나 모바일 일정표를
+                                보며 여행을 즐기세요.
+                            </div>
+                            <!-- <div class="section-text">여행엔 언제나 마이로!</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <footer class="mainFooter">
+        <!-- Store link Div -->
+        <div>
+            <a onclick="window.open('https://www.instagram.com/myro__official/','_blank')"><i class="fa fa-instagram w3-hover-opacity footericoncss"></i></a>
+            <a onclick="window.open('https://www.facebook.com/cokr.myro','_blank')"><i class="fa fa-facebook-official w3-hover-opacity footericoncss"></i></a>
+            <a onclick="window.open('https://www.youtube.com/watch?v=KD5rhdHhtyg&amp;t=0s','_blank')"><i class="fa fa-youtube-square w3-hover-opacity footericoncss"></i></a>
+            <a onclick="window.open('https://blog.naver.com/myrocdo','_blank')" id="myroBlogcss"><img src="/myro_image/naverblogicon.png" alt="img"></a>
+        </div>
+        <div class="bot_storelink">
+            <a href="https://apps.apple.com/kr/app/%EB%A7%88%EC%9D%B4%EB%A1%9C-myro/id1496337358"><img src="/myro_image/applestore.png" alt="앱스토어"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.myro.myro"><img src="/myro_image/playstore.png" alt="플레이스토어"></a>
+        </div>
+        <div style="margin: 16px">
+            <a onclick="" href="/userAgreements">
+                <h7>이용약관</h7>
+            </a>
+            <h7>|</h7>
+            <a onclick="" href="/userPolicy">
+                <h7>개인정보처리방침</h7>
+            </a>
+        </div>
+        <h7>주식회사 엠와이알오</h7>
+        <h7>사업자등록번호 649-88-01082</h7>
+        <h7>서울시 강남구 역삼동 741-11 3F</h7>
+        <h7>
+            <a href="mailto:contact@myro.co.kr"> contact@myro.co.kr</a>
+        </h7>
+        <p><h7>© MYRO Co.,Ltd. All rights reserved.</h7></p>
+    </footer>
+
+
+<script>
+    function aud_play_pause(_this) {
+        if (_this.nextElementSibling.paused) {
+            _this.children[0].style.display="inline-block";
+            _this.children[1].style.display="none";
+            _this.nextElementSibling.play();
+        } else {
+            _this.children[0].style.display="none";
+            _this.children[1].style.display="inline-block";
+            _this.nextElementSibling.pause();
+        }
+    }
+</script>
+
+</body><!-- <script>
+    $(function () {
+        $(window).scroll(function () {
+            var videoTop =
+                $("#video01").offset().top - $(window).height() - 200;
+            var video = $("#video01");
+
+            if ($(document).scrollTop() > videoTop) {
+                video.get(0).play();
+            }
+        });
+    });
+</script> --></html>

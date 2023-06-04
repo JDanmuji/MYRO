@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    /* color: #000; */
+}
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: #fafafa;
+}
+
+ol,
+ul {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.about-section-title {
+    font-family: 'Montserrat' !important;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.about-section-subtitle {
+    font-family: 'Montserrat' !important;
+    font-size: 1rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    background: #fafafa;
+}
+.mainFooter {
+    text-align: center;
+    background-color: #fafafa !important;
+    padding: 30px 16px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-text-right {
+    font-family: 'Montserrat';
+    font-weight: 900;
+    border-left: 3px solid #fff;
+    margin-left: 16px;
+    padding-left: 16px;
+}
+
+@media (max-width: 600px) {
+    .title-text-left {
+        font-size: 1rem;
+    }
+    .title-text-right {
+        font-size: 1.4rem;
+    }
+}
+
+.bot_storelink {
+    margin: 16px;
+    align-items: center;
+}
+
+.bot_storelink img {
+    width: 120px;
+}
+footer a {
+    color: #000 !important;
+}
+.footericoncss {
+    font-size: 25px !important;
+    margin: 3px !important;
+    color: #000000 !important;
+    cursor: pointer !important;
+}
+#myroBlogcss img {
+    vertical-align: baseline;
+    margin-left: 3px;
+    cursor: pointer;
+    width: 22px;
+}
+h7 {
+    font-size: 13px;
+}

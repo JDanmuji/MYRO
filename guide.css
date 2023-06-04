@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    /* color: #000; */
+}
+body {
+    min-height: 100vh;
+    width: 100%;
+    /* background: #fafafa; */
+}
+.root {
+    display: flex;
+    justify-content: center;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 100px; */
+    /* background: #fafafa; */
+    max-width: 1280px;
+    width: 100%;
+}
+.top-container {
+    padding-top: 120px;
+    padding-bottom: 40px;
+}
+.section-container {
+    display: flow-root;
+    box-sizing: border-box;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 20px;
+    background: #fff;
+}
+.flex-container {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    height: 530px;
+    justify-content: space-between;
+}
+.flex-container-reverse {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    height: 530px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.half-flex-div-text {
+    width: 45%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.half-flex-div-video {
+    width: 45%;
+    /* background-color: #98dbe3; */
+    border-radius: 8px;
+}
+
+.section-title-text {
+    font-family: "Montserrat";
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: #000;
+}
+.section-text {
+    font-size: 0.9rem;
+    font-family: "Montserrat";
+    line-height: 1.4;
+    color: #999;
+}
+
+.mainFooter {
+    text-align: center;
+    background-color: #fafafa !important;
+    margin-top: 40px;
+    padding: 30px 16px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bot_storelink {
+    margin: 16px;
+    align-items: center;
+}
+
+.bot_storelink img {
+    width: 120px;
+}
+footer a {
+    color: #000 !important;
+}
+.footericoncss {
+    font-size: 25px !important;
+    margin: 3px !important;
+    color: #000000 !important;
+    cursor: pointer !important;
+}
+#myroBlogcss img {
+    vertical-align: baseline;
+    margin-left: 3px;
+    cursor: pointer;
+    width: 22px;
+}
+h7 {
+    font-size: 13px;
+}
+.uk-position-center-left polyline {
+    color: #e0e0e0 !important;
+}
+.uk-position-center-right polyline {
+    color: #e0e0e0 !important;
+}
+.video-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* padding: 4px; */
+    /* background-color: #fafafa; */
+}
+.video-div {
+    border-radius: 8px;
+    /* height: 480px; */
+}
+.video-control-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .top-container {
+        padding-bottom: 0px;
+    }
+    .section-container {
+        padding-bottom: 0px;
+    }
+    .flex-container {
+        padding-left: 24px;
+        padding-right: 24px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-container-reverse {
+        padding-left: 24px;
+        padding-right: 24px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .half-flex-div-text {
+        width: 100%;
+        margin-top: 16px;
+    }
+    .half-flex-div-video {
+        width: 100%;
+        height: 270px;
+    }
+    .section-text {
+        font-size: 0.8rem;
+        font-family: "Montserrat";
+        line-height: 1.4;
+        color: #999;
+    }
+    .top-container h1 {
+        font-size: 1.2rem !important;
+    }
+    .video-div {
+        height: 300px;
+    }
+    .video-control-btn {
+        margin: 0 16px;
+        width: 24px;
+        height: 24px;
+    }
+    .material-icons {
+        font-size: 16px !important;
+    }
+}
